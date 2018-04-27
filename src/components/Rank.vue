@@ -1,11 +1,16 @@
 <template>
   <div>
-    Rank
+    <List></List>
   </div>
 </template>
 
 <script>
-
+  import List from './rank/List.vue'
+  export default {
+    components: {
+      List
+    }
+  }
 </script>
 
 <style>

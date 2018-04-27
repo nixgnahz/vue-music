@@ -29,23 +29,5 @@
 </script>
 
 <style>
-  .search_result {
-    position: fixed;
-    bottom: 0px;
-    top: 6.5rem;
-    overflow: hidden;
-  }
 
-  .empty_results {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    justify-content: center;
-  }
-
-  .empty_results p {
-    margin-top: 0.5rem;
-  }
 </style>
