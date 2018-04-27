@@ -1,5 +1,5 @@
 <template>
-  <div class="user">
+  <div class="user fixed">
     <Menu></Menu>
     <Songs></Songs>
   </div>

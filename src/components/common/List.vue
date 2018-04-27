@@ -18,68 +18,25 @@
           <Icon type="trash-a" size="20"></Icon>
         </span>
       </div>
-      <ul>
-        <li>
-          <p class="current circle_wrap icon_play">
-            <Icon class="scale" type="play" size="5" color="#ffcd32"></Icon>
-          </p>
-          <p class="title">Shut Up And Dance</p>
-          <p class="action">
-            <span>
-              <Icon v-show="false" type="ios-heart-outline" size="15" color="#ffcd32"></Icon>
-              <Icon type="ios-heart" size="15" color="#d93f30"></Icon>
-            </span>
-            <span class="remove">
-              <Icon type="android-close" size="15" color="#ffcd32"></Icon>
-            </span>
-          </p>
-        </li>
-        <li>
-          <p class="current circle_wrap icon_play">
-            <Icon class="scale" type="play" size="5" color="#ffcd32"></Icon>
-          </p>
-          <p class="title">Shut Up And Dance</p>
-          <p class="action">
-            <span>
-              <Icon v-show="false" type="ios-heart-outline" size="15" color="#ffcd32"></Icon>
-              <Icon type="ios-heart" size="15" color="#d93f30"></Icon>
-            </span>
-            <span class="remove">
-              <Icon type="android-close" size="15" color="#ffcd32"></Icon>
-            </span>
-          </p>
-        </li>
-        <li>
-          <p class="current circle_wrap icon_play">
-            <Icon class="scale" type="play" size="5" color="#ffcd32"></Icon>
-          </p>
-          <p class="title">Shut Up And Dance</p>
-          <p class="action">
-            <span>
-              <Icon v-show="false" type="ios-heart-outline" size="15" color="#ffcd32"></Icon>
-              <Icon type="ios-heart" size="15" color="#d93f30"></Icon>
-            </span>
-            <span class="remove">
-              <Icon type="android-close" size="15" color="#ffcd32"></Icon>
-            </span>
-          </p>
-        </li>
-        <li>
-          <p class="current circle_wrap icon_play">
-            <Icon class="scale" type="play" size="5" color="#ffcd32"></Icon>
-          </p>
-          <p class="title">Shut Up And Dance</p>
-          <p class="action">
-            <span>
-              <Icon v-show="false" type="ios-heart-outline" size="15" color="#ffcd32"></Icon>
-              <Icon type="ios-heart" size="15" color="#d93f30"></Icon>
-            </span>
-            <span class="remove">
-              <Icon type="android-close" size="15" color="#ffcd32"></Icon>
-            </span>
-          </p>
-        </li>
-      </ul>
+      <div class="wrapper">
+        <ul>
+          <li v-for="n in 10">
+            <p class="current circle_wrap icon_play">
+              <Icon class="scale" type="play" size="5" color="#ffcd32"></Icon>
+            </p>
+            <p class="title">Shut Up And Dance</p>
+            <p class="action">
+              <span>
+                <Icon v-show="false" type="ios-heart-outline" size="15" color="#ffcd32"></Icon>
+                <Icon type="ios-heart" size="15" color="#d93f30"></Icon>
+              </span>
+              <span class="remove">
+                <Icon type="android-close" size="15" color="#ffcd32"></Icon>
+              </span>
+            </p>
+          </li>
+        </ul>
+      </div>
       <div class="btn_wrapper">
         <div class="btn">
           <Icon type="plus-round"></Icon>

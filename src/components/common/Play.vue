@@ -1,5 +1,5 @@
 <template>
-  <div class="play">
+  <div class="play fixed">
     <div class="play_header row">
       <span class="back_icon">
         <Icon type="chevron-down" size="25" color="#ffcd32"></Icon>

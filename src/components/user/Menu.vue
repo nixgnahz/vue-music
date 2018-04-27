@@ -1,5 +1,5 @@
 <template>
-  <div class="user_header">
+  <div class="user_header menu_header">
     <div class="top">
       <span @click="goBack">
         <Icon class="back_icon" type="ios-arrow-back" size="35" color="#ffcd32"></Icon>

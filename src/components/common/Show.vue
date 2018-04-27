@@ -1,5 +1,5 @@
 <template>
-  <div class="show">
+  <div class="show fixed">
     <Info :info="info"></Info>
     <Songs></Songs>
   </div>
