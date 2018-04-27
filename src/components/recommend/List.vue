@@ -2,7 +2,7 @@
   <div class="recommend_list">
     <p class="title">热门歌单推荐</p>
     <ul>
-      <li>
+      <li @click="showSongs">
         <div class="cover"></div>
         <div class="content">
           <p class="name">还不是因为你长得不好看</p>
@@ -21,7 +21,13 @@
 </template>
 
 <script>
-
+  export default {
+    methods: {
+      showSongs () {
+        this.$store.dispatch('changeShowSongs');
+      }
+    }
+  }
 </script>
 
 <style>

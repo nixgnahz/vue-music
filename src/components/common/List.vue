@@ -37,19 +37,28 @@
           </li>
         </ul>
       </div>
-      <div class="btn_wrapper">
+      <div class="btn_wrapper" @click="changeAdd">
         <div class="btn">
           <Icon type="plus-round"></Icon>
           <span>添加歌曲到队列</span>
         </div>
       </div>
-      <div class="close">关闭</div>
+      <div class="close" @click="showList">关闭</div>
     </div>
   </div>
 </template>
 
 <script>
-
+  export default {
+    methods: {
+      showList () {
+        this.$store.dispatch('changeShowList');
+      },
+      changeAdd () {
+        this.$store.dispatch('changeShowAdd');
+      }
+    }
+  }
 </script>
 
 <style>

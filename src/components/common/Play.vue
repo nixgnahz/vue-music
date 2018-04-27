@@ -1,7 +1,7 @@
 <template>
   <div class="play fixed">
     <div class="play_header row">
-      <span class="back_icon">
+      <span class="back_icon" @click="showPlay">
         <Icon type="chevron-down" size="25" color="#ffcd32"></Icon>
       </span>
       <p class="name">Cabriolet</p>
@@ -87,11 +87,16 @@
       },
       changeLikeStatus () {
         this.like_status = !this.like_status
+      },
+      showPlay () {
+        this.$store.dispatch("changeShowPlay");
       }
     }
   }
 </script>
 
 <style>
-
+  .play {
+    z-index: 10000;
+  }
 </style>

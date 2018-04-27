@@ -2,7 +2,7 @@
   <div class="info" :style="{backgroundImage: 'url(' +  info.cover +')'}">
     <div class="filter">
       <div class="top">
-        <span>
+        <span @click="goBack">
           <Icon class="back_icon" type="ios-arrow-back" size="35" color="#ffcd32"></Icon>
         </span>
         <p class="name">{{info.name}}</p>
@@ -19,7 +19,13 @@
 
 <script>
  export default {
-   props: ["info"]
+   props: ["info"],
+   methods: {
+     goBack () {
+       this.$router.go(-1);
+       this.$store.dispatch("changeShowSongs");
+     }
+   }
  }
 </script>
 

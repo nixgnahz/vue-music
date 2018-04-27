@@ -1,23 +1,7 @@
 <template>
   <div class="songs">
     <ul>
-      <li>
-        <p class="title">Libertango</p>
-        <p class="desc">马友友/Horacio Malvicino/Leonardo Marconi/Antonio Agri·Piazzolla: Soul of the Tango</p>
-      </li>
-      <li>
-        <p class="title">Libertango</p>
-        <p class="desc">马友友/Horacio Malvicino/Leonardo Marconi/Antonio Agri·Piazzolla: Soul of the Tango</p>
-      </li>
-      <li>
-        <p class="title">Libertango</p>
-        <p class="desc">马友友/Horacio Malvicino/Leonardo Marconi/Antonio Agri·Piazzolla: Soul of the Tango</p>
-      </li>
-      <li>
-        <p class="title">Libertango</p>
-        <p class="desc">马友友/Horacio Malvicino/Leonardo Marconi/Antonio Agri·Piazzolla: Soul of the Tango</p>
-      </li>
-      <li>
+      <li v-for="n in 5" @click="showMiniPlay">
         <p class="title">Libertango</p>
         <p class="desc">马友友/Horacio Malvicino/Leonardo Marconi/Antonio Agri·Piazzolla: Soul of the Tango</p>
       </li>
@@ -27,7 +11,11 @@
 
 <script>
   export default {
-
+    methods: {
+      showMiniPlay () {
+        this.$store.dispatch('changeShowMiniPlay');
+      }
+    }
   }
 </script>
 

@@ -2,7 +2,7 @@
   <div class="add fixed">
     <div class="top">
       <p>添加歌曲到列表</p>
-      <span class="close_icon">
+      <span class="close_icon" @click="showAdd">
         <Icon type="android-close" size="30" color="#ffcd32"></Icon>
       </span>
     </div>
@@ -43,12 +43,19 @@
     methods: {
       changeMenu (index) {
         this.activeIndex = index;
+      },
+      showAdd () {
+        this.$store.dispatch('changeShowAdd');
       }
     }
   }
 </script>
 
 <style>
+  .add {
+    z-index: 10000;
+  }
+
   .add .top {
     position: relative;
     text-align: center;
