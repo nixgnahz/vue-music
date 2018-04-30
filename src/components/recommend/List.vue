@@ -2,7 +2,7 @@
   <div class="recommend_list">
     <p class="title">热门歌单推荐</p>
     <ul>
-      <li v-for="item in items" @click="showSongs(item.id)">
+      <li v-for="(item, index) in items" @click="showSongs(index)">
         <div class="cover" :style="{backgroundImage: 'url(' + item.cover + ')'}"></div>
         <div class="content">
           <p class="name">{{item.name}}</p>
