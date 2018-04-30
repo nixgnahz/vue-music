@@ -2,21 +2,19 @@
   <div>
     <Swiper></Swiper>
     <List></List>
-    <!--
-    <Show></Show>
-    -->
+    <transition name="spread">
+      <router-view class="fixed upper"></router-view>
+    </transition>
   </div>
 </template>
 
 <script>
   import Swiper from './recommend/Swiper.vue'
   import List from './recommend/List.vue'
-  import Show from './common/Show.vue'
   export default {
     components: {
       Swiper,
-      List,
-      Show
+      List
     }
   }
 </script>

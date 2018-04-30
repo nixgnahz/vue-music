@@ -17,10 +17,7 @@ export default {
       state.showAdd = !state.showAdd;
     },
     changeShowMiniPlay (state) {
-      state.showMiniPlay = !state.showMiniPlay;
-    },
-    changeShowSongs (state) {
-      state.showSongs = !state.showSongs;
+      if(!state.showMiniPlay) state.showMiniPlay = !state.showMiniPlay;
     }
   },
   actions: {
@@ -35,9 +32,6 @@ export default {
     },
     changeShowMiniPlay (context) {
       context.commit('changeShowMiniPlay');
-    },
-    changeShowSongs (context) {
-      context.commit('changeShowSongs');
     }
   }
 }

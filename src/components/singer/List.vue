@@ -2,40 +2,17 @@
   <div class="singer_list">
     <div class="menu">
       <ul>
-        <li>热</li>
-        <li>A</li>
-        <li>B</li>
-        <li>C</li>
-        <li>D</li>
-        <li>E</li>
-        <li>F</li>
-        <li>G</li>
+        <li @click="changeSingerList(index)" :class="[index == activeIndex ? 'active' : '']" v-for="(item, index) in menuList">{{item.label}}</li>
       </ul>
     </div>
     <div class="content">
       <p class="title">
-        <span>热门</span>
+        <span>{{singerList.value}}</span>
       </p>
       <ul>
-        <li>
-          <div class="portrait"></div>
-          <p class="name">薛之谦</p>
-        </li>
-        <li>
-          <div class="portrait"></div>
-          <p class="name">薛之谦</p>
-        </li>
-        <li>
-          <div class="portrait"></div>
-          <p class="name">薛之谦</p>
-        </li>
-        <li>
-          <div class="portrait"></div>
-          <p class="name">薛之谦</p>
-        </li>
-        <li>
-          <div class="portrait"></div>
-          <p class="name">薛之谦</p>
+        <li v-for="(item, index) in singerList.singers" @click="showSongs(index)">
+          <div class="portrait" :style="{backgroundImage: 'url(' +  item.cover + ')'}"></div>
+          <p class="name">{{item.name}}</p>
         </li>
       </ul>
     </div>
@@ -43,7 +20,42 @@
 </template>
 
 <script>
-
+  import axios from 'axios'
+  export default {
+    data () {
+      return {
+        menuList: [],
+        activeIndex: 0,
+        singerList: []
+      }
+    },
+    created () {
+      axios.get('http://localhost:8080/static/singer.json').then((res)=>{
+        this.menuList = res.data.data;
+        this.singerList = this.menuList[this.activeIndex];
+      }).catch((error)=>{
+        console.log(error);
+      })
+    },
+    methods: {
+      showSongs (id) {
+        this.$router.push({
+          name: 'singerDetail',
+          params: {
+            id: id
+          }
+        })
+      },
+      changeSingerList (index) {
+        this.activeIndex = index;
+      }
+    },
+    watch: {
+      activeIndex () {
+        this.singerList = this.menuList[this.activeIndex];
+      }
+    }
+  }
 </script>
 
 <style>

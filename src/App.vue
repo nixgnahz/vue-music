@@ -5,7 +5,6 @@
     <Play v-if="showPlay"></Play>
     <List v-if="showList"></List>
     <Add v-if="showAdd"></Add>
-    <Songs v-if="showSongs"></Songs>
     <router-view/>
   </div>
 </template>
@@ -14,7 +13,6 @@
   import NavBar from './components/NavBar.vue'
   import Play from './components/common/Play.vue'
   import Add from './components/common/Add.vue'
-  import Songs from './components/common/Show.vue'
   import List from './components/common/List.vue'
   import MiniPlay from './components/common/MiniPlay.vue'
   export default {
@@ -24,8 +22,7 @@
       MiniPlay,
       Play,
       List,
-      Add,
-      Songs
+      Add
     },
     computed: {
       showPlay () {
@@ -39,9 +36,6 @@
       },
       showMiniPlay () {
         return this.$store.state.show.showMiniPlay
-      },
-      showSongs () {
-        return this.$store.state.show.showSongs
       }
     }
   }

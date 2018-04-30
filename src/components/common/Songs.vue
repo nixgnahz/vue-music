@@ -1,9 +1,9 @@
 <template>
   <div class="songs">
     <ul>
-      <li v-for="n in 5" @click="showMiniPlay">
-        <p class="title">Libertango</p>
-        <p class="desc">马友友/Horacio Malvicino/Leonardo Marconi/Antonio Agri·Piazzolla: Soul of the Tango</p>
+      <li v-for="item in songs" @click="showMiniPlay(item.id)" :key="item.id">
+        <p class="title">{{item.name}}</p>
+        <p class="desc">{{item.desc}}</p>
       </li>
     </ul>
   </div>
@@ -11,8 +11,9 @@
 
 <script>
   export default {
+    props: ["songs"],
     methods: {
-      showMiniPlay () {
+      showMiniPlay (id) {
         this.$store.dispatch('changeShowMiniPlay');
       }
     }

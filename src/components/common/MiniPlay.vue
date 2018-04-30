@@ -1,10 +1,10 @@
 <template>
   <div class="mini_player">
     <div class="bottom_box">
-      <div :class="['cover', animationFlag ? 'animation' : '']" @click="showPlay"></div>
+      <div :class="['cover', animationFlag ? 'animation' : '']" :style="{backgroundImage: 'url(' + detail.cover + ')'}" @click="showPlay"></div>
       <div class="desc">
-        <p class="name">演员</p>
-        <p class="singer">薛之谦</p>
+        <p class="name">{{detail.name}}</p>
+        <p class="singer">{{detail.singer}}</p>
       </div>
       <div class="icons">
         <span class="icon" @click="changePlayStatus">
@@ -16,16 +16,28 @@
         </span>
       </div>
     </div>
+    <audio ref="audio"></audio>
   </div>
 </template>
 
 <script>
+  import axios from 'axios'
   export default {
     data () {
       return {
         playFlag: true,
-        animationFlag: true
+        animationFlag: true,
+        detail: {}
       }
+    },
+    created: function () {
+      axios.get('http://localhost:8080/static/song.json').then((res)=>{
+        this.detail = res.data.data;
+        this.$refs.audio.src = this.detail.source;
+        this.$refs.audio.play();
+      }).catch((error)=>{
+        console.log(error)
+      })
     },
     watch: {
       playFlag () {
@@ -34,6 +46,11 @@
     },
     methods: {
       changePlayStatus () {
+        if(this.playFlag) {
+          this.$refs.audio.pause();
+        } else{
+          this.$refs.audio.play();
+        }
         this.playFlag = !this.playFlag;
       },
       showPlay () {

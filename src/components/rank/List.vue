@@ -1,59 +1,11 @@
 <template>
   <div class="rank_list">
     <ul>
-      <li>
-        <div class="cover"></div>
+      <li v-for="(item, index) in items" @click="showSongs(index)">
+        <div class="cover" :style="{backgroundImage: 'url(' + item.cover + ')'}"></div>
         <div class="list">
-          <p>
-            <span>1</span>摩天大楼-薛之谦
-          </p>
-          <p>
-            <span>2</span>哑巴 (Live)-薛之谦
-          </p>
-          <p>
-            <span>3</span>我乐意-许嵩
-          </p>
-        </div>
-      </li>
-      <li>
-        <div class="cover"></div>
-        <div class="list">
-          <p>
-            <span>1</span>摩天大楼-薛之谦
-          </p>
-          <p>
-            <span>2</span>哑巴 (Live)-薛之谦
-          </p>
-          <p>
-            <span>3</span>我乐意-许嵩
-          </p>
-        </div>
-      </li>
-      <li>
-        <div class="cover"></div>
-        <div class="list">
-          <p>
-            <span>1</span>摩天大楼-薛之谦
-          </p>
-          <p>
-            <span>2</span>哑巴 (Live)-薛之谦
-          </p>
-          <p>
-            <span>3</span>我乐意-许嵩
-          </p>
-        </div>
-      </li>
-      <li>
-        <div class="cover"></div>
-        <div class="list">
-          <p>
-            <span>1</span>摩天大楼-薛之谦摩天大楼-薛之谦摩天大楼-薛之谦摩天大楼-薛之谦
-          </p>
-          <p>
-            <span>2</span>哑巴 (Live)-薛之谦
-          </p>
-          <p>
-            <span>3</span>我乐意-许嵩
+          <p v-for="(itm, idx) in item.lists">
+            <span>{{idx + 1}}</span>{{itm}}
           </p>
         </div>
       </li>
@@ -62,7 +14,31 @@
 </template>
 
 <script>
-
+  import axios from 'axios'
+  export default {
+    data () {
+      return {
+        items: []
+      }
+    },
+    created: function () {
+      axios.get('http://localhost:8080/static/rank.json').then((res)=>{
+        this.items = res.data.data;
+      }).catch((error)=>{
+        console.log(error);
+      })
+    },
+    methods: {
+      showSongs (id) {
+        this.$router.push({
+          name: 'rankDetail',
+          params: {
+            id: id
+          }
+        })
+      }
+    }
+  }
 </script>
 
 <style>

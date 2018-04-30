@@ -1,0 +1,33 @@
+{
+  "info": {
+    "name": "初夏微风｜听星星闪烁的声音",
+    "cover": "http://p.qpic.cn/music_cover/3G9zgTVAfaFXNyW4KnDxXYP9zyDMa0kfMpBlWSdGtkuM2rUrG0xhAg/600?n=1"
+  },
+  "songs": [
+    {
+      "id": 1,
+      "name": "夏影 ～summer lights～",
+      "desc": "日本群星 (オムニバス)·青空の鈴"
+    },
+    {
+      "id": 2,
+      "name": "満天の星",
+      "desc": "吉森信 (よしもり まこと)·夏目友人帳 参·肆 音楽集 ひねもすきらりきらり (夏目友人帐 三·四 音乐集 璀璨依旧)"
+    },
+    {
+      "id": 3,
+      "name": "Star Dust",
+      "desc": "Key Sounds Label·クドわふたー オリジナル サウンドトラック (库特Wafter 游戏原声带)"
+    },
+    {
+      "id": 4,
+      "name": "Bui-Doi",
+      "desc": "Original London Cast·Highlights From Miss Saigon (Original London Cast Recording)"
+    },
+    {
+      "id": 5,
+      "name": "生如夏花",
+      "desc": "Hum Music：洗尽铅华的空灵女声"
+    }
+  ]
+}

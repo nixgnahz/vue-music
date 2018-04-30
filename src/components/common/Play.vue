@@ -4,37 +4,27 @@
       <span class="back_icon" @click="showPlay">
         <Icon type="chevron-down" size="25" color="#ffcd32"></Icon>
       </span>
-      <p class="name">Cabriolet</p>
+      <p class="name">{{detail.name}}</p>
     </div>
-    <p class="singer">Pixie Paris</p>
-    <div class="middle">
-      <div class="cover_wrapper" style="opacity: 0;">
-        <div class="row">
-          <div class="cover"></div>
-        </div>
-        <p class="desc">Cabriolet - Pixie Paris</p>
-      </div>
-      <div class="lyric_wrapper">
-        <p class="text">浮夸 - 陈奕迅</p>
-        <p class="text current">词：黄伟文</p>
-        <p class="text">曲：C.Y. Kong</p>
-        <p class="text">有人问我 我就会讲</p>
-        <p class="text">有人问我</p>
-        <p class="text">我就会讲</p>
-        <p class="text">有人问我 我就会讲</p>
-        <p class="text">有人问我</p>
-        <p class="text">我就会讲</p>
-        <p class="text">有人问我 我就会讲</p>
-        <p class="text">有人问我 我就会讲</p>
-        <p class="text">有人问我 我就会讲</p>
-        <p class="text">有人问我</p>
-        <p class="text">我就会讲</p>
-        <p class="text">有人问我 我就会讲</p>
-        <p class="text">有人问我</p>
-        <p class="text">我就会讲</p>
-        <p class="text">有人问我 我就会讲</p>
-        <p class="text">有人问我 我就会讲</p>
-      </div>
+    <p class="singer">{{detail.singer}}</p>
+    <div class="middle swipers">
+      <swiper :options="options" :not-next-tick="options.notNextTick">
+        <swiper-slide>
+          <div class="cover_wrapper">
+            <div class="row">
+              <div class="cover"></div>
+            </div>
+            <p class="desc">Cabriolet - Pixie Paris</p>
+          </div>
+        </swiper-slide>
+        <swiper-slide>
+          <div class="scroll_wrapper">
+            <div class="lyric_wrapper">
+              <p class="text" :class="[current == index ? 'current' : '']" v-for="(item, index) in detail.lyric">{{item}}</p>
+            </div>
+          </div>
+        </swiper-slide>
+      </swiper>
     </div>
     <div class="dot">
       <p class="inactive"></p>
@@ -47,7 +37,7 @@
           <p class="btn"></p>
         </div>
       </div>
-      <span class="time">03:31</span>
+      <span class="time">{{detail.totalTime}}</span>
     </div>
     <div class="action_btn">
       <span class="icon" @click="changePlayType">
@@ -69,14 +59,33 @@
 </template>
 
 <script>
+  import axios from 'axios'
+  import 'swiper/dist/css/swiper.css'
+  import { swiper, swiperSlide } from 'vue-awesome-swiper'
   export default {
+    components: {
+      swiper,
+      swiperSlide
+    },
     data () {
       return {
         play_type: 1,
         play_status: 1,
         like_status: 0,
-        show_lyric: true
+        current: 2,
+        activeIndex: 1,
+        detail: {},
+        options: {
+          notNextTick: false
+        }
       }
+    },
+    created: function () {
+      axios.get('http://localhost:8080/static/song.json').then((res)=>{
+        this.detail = res.data.data;
+      }).catch((error)=>{
+        console.log(error)
+      })
     },
     methods: {
       changePlayType () {
