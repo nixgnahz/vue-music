@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 
-import NotFound from '@/components/User.vue'
+import NotFound from '@/components/NotFound.vue'
 import Rank from '@/components/Rank.vue'
 import Recommend from '@/components/Recommend.vue'
 import Search from '@/components/Search.vue'

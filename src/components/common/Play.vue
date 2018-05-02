@@ -105,7 +105,5 @@
 </script>
 
 <style>
-  .play {
-    z-index: 10000;
-  }
+
 </style>

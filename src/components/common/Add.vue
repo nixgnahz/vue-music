@@ -52,21 +52,5 @@
 </script>
 
 <style>
-  .add {
-    z-index: 10000;
-  }
 
-  .add .top {
-    position: relative;
-    text-align: center;
-    padding: 0.5rem 0px;
-    font-size: 0.75rem;
-    font-weight: 900;
-  }
-
-  .add .top .close_icon {
-    position: absolute;
-    top: 0.38rem;
-    right: 0.5rem;
-  }
 </style>
