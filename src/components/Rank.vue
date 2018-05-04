@@ -1,6 +1,10 @@
 <template>
   <div>
-    <List></List>
+    <div class="fixed_wrapper">
+      <Scroll class="scroll_wrapper">
+        <List></List>
+      </Scroll>
+    </div>
     <transition name="spread">
       <router-view class="fixed upper"></router-view>
     </transition>
@@ -9,9 +13,11 @@
 
 <script>
   import List from './rank/List.vue'
+  import Scroll from './common/Scroll.vue'
   export default {
     components: {
-      List
+      List,
+      Scroll
     }
   }
 </script>

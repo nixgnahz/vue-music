@@ -6,8 +6,6 @@
 
 <script>
   import BScroll from 'better-scroll'
-  const horizontal = 'horizontal'
-  const vertical = 'vertical'
   export default {
     props: {
       probeType: {
@@ -15,6 +13,10 @@
         default: 1
       },
       click: {
+        type: Boolean,
+        default: true
+      },
+      scrollX: {
         type: Boolean,
         default: false
       },
@@ -30,6 +32,10 @@
         type: Boolean,
         default: false
       },
+      pulldown: {
+        type: Boolean,
+        default: false
+      },
       beforeScroll: {
         type: Boolean,
         default: false
@@ -37,10 +43,6 @@
       refreshDelay: {
         type: Number,
         default: 20
-      },
-      direction: {
-        type: String,
-        default: vertical
       }
     },
     mounted() {
@@ -54,17 +56,25 @@
         this.scroll = new BScroll(this.$refs.wrapper, {
           probeType: this.probeType,
           click: this.click,
-          eventPassthrough: this.direction === vertical ? horizontal : vertical
+          scrollX: this.scrollX
         })
         if (this.listenScroll) {
+          let me = this;
           this.scroll.on('scroll', (pos) => {
-            this.$emit('scroll', pos)
+            me.$emit('scroll', pos)
           })
         }
         if (this.pullup) {
           this.scroll.on('scrollEnd', () => {
             if (this.scroll.y <= (this.scroll.maxScrollY + 50)) {
               this.$emit('scrollToEnd')
+            }
+          })
+        }
+        if (this.pulldown) {
+          this.scroll.on('touchend', (pos) => {
+            if (pos.y > 50) {
+              this.$emit('pulldown')
             }
           })
         }

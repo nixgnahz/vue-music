@@ -14,20 +14,8 @@
 </template>
 
 <script>
-  import axios from 'axios'
   export default {
-    data () {
-      return {
-        items: []
-      }
-    },
-    created () {
-      axios.get('http://localhost:8080/static/recommend.json').then((res)=>{
-        this.items = res.data.data;
-      }).catch((error)=>{
-        console.log(error)
-      })
-    },
+    props: ["items"],
     methods: {
       showSongs (id) {
         this.$router.push({

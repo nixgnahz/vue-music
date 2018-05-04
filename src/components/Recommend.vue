@@ -1,7 +1,13 @@
 <template>
   <div>
-    <Swiper></Swiper>
-    <List></List>
+    <div class="fixed_wrapper">
+      <Scroll class="scroll_wrapper">
+        <section>
+          <Swiper :items="swipers"></Swiper>
+          <List :items="recommends"></List>
+        </section>
+      </Scroll>
+    </div>
     <transition name="spread">
       <router-view class="fixed upper"></router-view>
     </transition>
@@ -11,10 +17,33 @@
 <script>
   import Swiper from './recommend/Swiper.vue'
   import List from './recommend/List.vue'
+  import getSwiper from '@/api/swiper'
+  import {success} from '@/api/jsonp'
+  import Scroll from './common/Scroll.vue'
+  import axios from 'axios'
   export default {
     components: {
       Swiper,
-      List
+      List,
+      Scroll
+    },
+    data () {
+      return {
+        swipers: [],
+        recommends: []
+      }
+    },
+    created () {
+      getSwiper().then((res)=>{
+        if(res.code === success) {
+          this.swipers = res.data.slider;
+        }
+      })
+      axios.get('http://localhost:8080/static/recommend.json').then((res)=>{
+        this.recommends = res.data.data;
+      }).catch((error)=>{
+        console.log(error)
+      })
     }
   }
 </script>

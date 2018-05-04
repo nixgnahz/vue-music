@@ -21,11 +21,21 @@
     },
     {
       "id": 4,
+      "name": "満天の星",
+      "desc": "吉森信 (よしもり まこと)·夏目友人帳 参·肆 音楽集 ひねもすきらりきらり (夏目友人帐 三·四 音乐集 璀璨依旧)"
+    },
+    {
+      "id": 5,
+      "name": "Star Dust",
+      "desc": "Key Sounds Label·クドわふたー オリジナル サウンドトラック (库特Wafter 游戏原声带)"
+    },
+    {
+      "id": 6,
       "name": "Bui-Doi",
       "desc": "Original London Cast·Highlights From Miss Saigon (Original London Cast Recording)"
     },
     {
-      "id": 5,
+      "id": 7,
       "name": "生如夏花",
       "desc": "Hum Music：洗尽铅华的空灵女声"
     }

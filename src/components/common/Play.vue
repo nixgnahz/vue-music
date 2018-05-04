@@ -8,7 +8,7 @@
     </div>
     <p class="singer">{{detail.singer}}</p>
     <div class="middle swipers">
-      <swiper :options="options" :not-next-tick="options.notNextTick">
+      <swiper :options="options" :not-next-tick="options.notNextTick" ref="swiper">
         <swiper-slide>
           <div class="cover_wrapper">
             <div class="row">
@@ -18,11 +18,13 @@
           </div>
         </swiper-slide>
         <swiper-slide>
-          <div class="scroll_wrapper">
-            <div class="lyric_wrapper">
-              <p class="text" :class="[current == index ? 'current' : '']" v-for="(item, index) in detail.lyric">{{item}}</p>
-            </div>
-          </div>
+          <section class="lyric_scroll">
+            <Scroll class="lyric_wrapper">
+              <div class="lyrics">
+                <p class="text" :class="[current == index ? 'current' : '']" v-for="(item, index) in detail.lyric">{{item}}</p>
+              </div>
+            </Scroll>
+          </section>
         </swiper-slide>
       </swiper>
     </div>
@@ -62,10 +64,12 @@
   import axios from 'axios'
   import 'swiper/dist/css/swiper.css'
   import { swiper, swiperSlide } from 'vue-awesome-swiper'
+  import Scroll from './Scroll.vue'
   export default {
     components: {
       swiper,
-      swiperSlide
+      swiperSlide,
+      Scroll
     },
     data () {
       return {
@@ -76,7 +80,7 @@
         activeIndex: 1,
         detail: {},
         options: {
-          notNextTick: false
+          notNextTick: true
         }
       }
     },
