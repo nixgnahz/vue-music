@@ -25,7 +25,7 @@
       axios.get('http://localhost:8080/static/recommend.json').then((res)=>{
         this.items = res.data.data;
       }).catch((error)=>{
-        console.log(error);
+        console.log(error)
       })
     },
     methods: {

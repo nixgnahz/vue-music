@@ -1,7 +1,7 @@
 <template>
-  <div class="swipers">
+  <div class="swipers" v-if="items.length">
     <swiper :options="options" :not-next-tick="options.notNextTick">
-      <swiper-slide v-for="item in items" :key="item.cover">
+      <swiper-slide v-for="item in items" :key="item.id">
         <a :href="item.href">
           <img :src="item.cover" />
         </a>
@@ -12,7 +12,8 @@
 </template>
 
 <script>
-  import axios from 'axios'
+  import getSwiper from '@/api/swiper'
+  import {success} from '@/api/jsonp'
   import 'swiper/dist/css/swiper.css'
   import { swiper, swiperSlide } from 'vue-awesome-swiper'
   export default {
@@ -35,10 +36,12 @@
       }
     },
     created () {
-      axios.get('http://localhost:8080/static/swiper.json').then((res)=>{
-        this.items = res.data.data;
-      }).catch((error)=>{
-        console.log(error)
+      getSwiper().then((res)=>{
+        if(res.code === success) {
+          res.data.slider.filter((item)=>{
+            this.items.push({cover: item.picUrl, href: item.linkUrl, id: item.id})
+          })
+        }
       })
     }
   }
