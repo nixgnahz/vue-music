@@ -8,7 +8,7 @@
     </div>
     <p class="singer">{{detail.singer}}</p>
     <div class="middle swipers">
-      <swiper :options="options" :not-next-tick="options.notNextTick" ref="swiper">
+      <swiper :options="options" :not-next-tick="options.notNextTick" ref="swiper" @slideChangeTransitionEnd="slideEnd">
         <swiper-slide>
           <div class="cover_wrapper">
             <div class="row">
@@ -29,8 +29,8 @@
       </swiper>
     </div>
     <div class="dot">
-      <p class="inactive"></p>
-      <p class="active"></p>
+      <p :class="[activeIndex ? 'inactive' : 'active']"></p>
+      <p :class="[activeIndex ? 'active' : 'inactive']"></p>
     </div>
     <div class="progress">
       <span class="time">00:00</span>
@@ -77,7 +77,7 @@
         play_status: 1,
         like_status: 0,
         current: 2,
-        activeIndex: 1,
+        activeIndex: 0,
         detail: {},
         options: {
           notNextTick: true
@@ -103,6 +103,9 @@
       },
       showPlay () {
         this.$store.dispatch("changeShowPlay");
+      },
+      slideEnd () {
+        this.activeIndex = this.$refs.swiper.swiper.activeIndex;
       }
     }
   }

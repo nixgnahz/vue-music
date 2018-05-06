@@ -4,7 +4,8 @@ export default {
     showList: false,
     showAdd: false,
     showMiniPlay: false,
-    showSongs: false
+    showSongs: false,
+    activeIndex: 0
   },
   mutations: {
     changeShowPlay (state) {
@@ -18,6 +19,9 @@ export default {
     },
     changeShowMiniPlay (state) {
       if(!state.showMiniPlay) state.showMiniPlay = !state.showMiniPlay;
+    },
+    changeActiveIndex (state, payload) {
+      state.activeIndex = payload.index;
     }
   },
   actions: {
@@ -32,6 +36,9 @@ export default {
     },
     changeShowMiniPlay (context) {
       context.commit('changeShowMiniPlay');
+    },
+    changeActiveIndex (context, payload) {
+      context.commit('changeActiveIndex', payload);
     }
   }
 }

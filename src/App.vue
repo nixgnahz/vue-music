@@ -4,7 +4,9 @@
     <MiniPlay v-if="showMiniPlay"></MiniPlay>
     <Play v-if="showPlay"></Play>
     <List v-if="showList"></List>
-    <Add v-if="showAdd"></Add>
+    <transition name="spread">
+      <Add v-if="showAdd"></Add>
+    </transition>
     <router-view/>
   </div>
 </template>

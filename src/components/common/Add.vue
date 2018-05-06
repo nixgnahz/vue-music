@@ -18,7 +18,18 @@
       <History></History>
       <Result></Result>
     </div>
-    <Songs v-show="!activeIndex"></Songs>
+    <div class="user_songs add_listen_top" v-show="!activeIndex">
+      <Scroll class="scroll_wrapper">
+        <section>
+          <ul>
+            <li v-for="item in songs">
+              <p class="name">{{item.name}}</p>
+              <p class="desc">{{item.desc}}</p>
+            </li>
+          </ul>
+        </section>
+      </Scroll>
+    </div>
   </div>
 </template>
 
@@ -26,19 +37,28 @@
   import Search from '../search/Input.vue'
   import History from '../search/History.vue'
   import Result from '../search/Result.vue'
-  import Songs from './Songs.vue'
+  import Scroll from './Scroll.vue'
+  import axios from 'axios'
   export default {
     components: {
       Search,
-      Songs,
       History,
-      Result
+      Result,
+      Scroll
     },
     data () {
       return {
         activeIndex: 0,
+        songs: [],
         menu: ["最近播放", "搜索历史"]
       }
+    },
+    created () {
+      axios.get('http://localhost:8080/static/like.json').then((res)=>{
+        this.songs = res.data.data.listen;
+      }).catch((error)=>{
+        console.log(error)
+      })
     },
     methods: {
       changeMenu (index) {

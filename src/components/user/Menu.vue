@@ -19,13 +19,19 @@
   export default {
     data () {
       return {
-        activeIndex: 0,
         menu: ["我喜欢的", "我最近听的"]
+      }
+    },
+    computed: {
+      activeIndex () {
+        return this.$store.state.show.activeIndex
       }
     },
     methods: {
       changeMenu (index) {
-        this.activeIndex = index;
+        this.$store.dispatch('changeActiveIndex', {
+          index: index
+        })
       },
       goBack () {
         this.$router.go(-1);

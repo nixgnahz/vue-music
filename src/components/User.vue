@@ -1,8 +1,10 @@
 <template>
-  <div class="user fixed">
-    <Menu></Menu>
-    <Songs></Songs>
-  </div>
+  <transition name="spread">
+    <div class="user fixed">
+      <Menu></Menu>
+      <Songs></Songs>
+    </div>
+  </transition>
 </template>
 
 <script>
