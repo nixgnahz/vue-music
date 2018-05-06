@@ -106,6 +106,9 @@ li {
 .search_result {
   width: 90%;
   margin: 0.25rem 5%;
+  position: fixed;
+  bottom: 0px;
+  top: 7.5rem;
 }
 
 .search_result li {
@@ -544,13 +547,6 @@ li {
 
 .user_header .play_btn span {
   margin-left: 0.5rem;
-}
-
-.search_result {
-  position: fixed;
-  bottom: 0px;
-  top: 7.5rem;
-  overflow: hidden;
 }
 
 .empty_results {

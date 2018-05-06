@@ -18,10 +18,11 @@ export  default {
       state.showEmpty = false;
     },
     getSearchResults (state) {
+      if(!state.searchValue) return;
       state.showLoad = true;
       axios.get('http://musicapi.leanapp.cn/search?keywords=' + state.searchValue,{
         params: {
-          limit: 10,
+          limit: 30,
           offset: 1
         }
       }).then((res)=>{

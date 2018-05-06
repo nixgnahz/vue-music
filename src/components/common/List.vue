@@ -3,14 +3,14 @@
     <div class="mask">
       <div class="list_wrapper">
         <div class="play_type">
-          <p>
-            <span class="circle_wrap icon_type">
+          <p v-if="play_type">
+            <span class="circle_wrap icon_type" @click="changePlayType">
               <Icon type="shuffle" size="20" color="#ffcd32"></Icon>
             </span>
             <span class="text">随机播放</span>
           </p>
-          <p v-show="false">
-            <span class="circle_wrap">
+          <p v-if="!play_type">
+            <span class="circle_wrap icon_type" @click="changePlayType">
               <Icon type="android-sync" size="20" color="#ffcd32"></Icon>
             </span>
             <span class="text">顺序播放</span>
@@ -61,6 +61,7 @@
     },
     data () {
       return {
+        play_type: 1,
         lists: []
       }
     },
@@ -77,6 +78,9 @@
       },
       changeAdd () {
         this.$store.dispatch('changeShowAdd');
+      },
+      changePlayType () {
+        this.play_type = !this.play_type
       }
     }
   }
