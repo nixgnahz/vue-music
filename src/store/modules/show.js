@@ -18,7 +18,7 @@ export default {
       state.showAdd = !state.showAdd;
     },
     changeShowMiniPlay (state) {
-      if(!state.showMiniPlay) state.showMiniPlay = !state.showMiniPlay;
+      state.showMiniPlay = !state.showMiniPlay;
     },
     changeActiveIndex (state, payload) {
       state.activeIndex = payload.index;
@@ -35,7 +35,10 @@ export default {
       context.commit('changeShowAdd');
     },
     changeShowMiniPlay (context) {
-      context.commit('changeShowMiniPlay');
+      if(!context.state.showMiniPlay) {
+        context.commit('changeShowMiniPlay');
+      }
+      context.commit('changeShowPlay');
     },
     changeActiveIndex (context, payload) {
       context.commit('changeActiveIndex', payload);

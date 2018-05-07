@@ -1,7 +1,7 @@
 <template>
   <div class="mini_player">
     <div class="bottom_box">
-      <div :class="['cover', animationFlag ? 'animation' : '']" :style="{backgroundImage: 'url(' + detail.cover + ')'}" @click="showPlay"></div>
+      <div :class="['cover', playFlag ? 'animation' : '']" :style="{backgroundImage: 'url(' + detail.cover + ')'}" @click="showPlay"></div>
       <div class="desc">
         <p class="name">{{detail.name}}</p>
         <p class="singer">{{detail.singer}}</p>
@@ -26,7 +26,6 @@
     data () {
       return {
         playFlag: true,
-        animationFlag: true,
         detail: {}
       }
     },
@@ -38,11 +37,6 @@
       }).catch((error)=>{
         console.log(error)
       })
-    },
-    watch: {
-      playFlag () {
-        this.animationFlag = this.playFlag;
-      }
     },
     methods: {
       changePlayStatus () {

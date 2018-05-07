@@ -353,8 +353,8 @@ li {
   margin-left: 0.5rem;
 }
 
-.mini_player .animation {
-  animation: rotate 5s linear infinite;
+.animation {
+  animation: rotate 20s linear infinite;
 }
 
 @keyframes rotate{
@@ -448,7 +448,6 @@ li {
   background-position: center;
   margin: 0.5rem 0px;
   border-radius: 50%;
-  background-image: url(https://y.gtimg.cn/music/photo_new/T002R300x300M000003eLHHx1AnY4L.jpg?max_age=2592000);
 }
 
 .play .desc {
@@ -472,8 +471,15 @@ li {
   display: inline-block;
 }
 
-.play .progress .wrapper {
+.play .progress section {
   width: 55%;
+  height: 30px;
+  display: flex;
+  align-items: center;
+}
+
+.play .progress .wrapper {
+  width: 100%;
   height: 4px;
   background: #999;
 }
@@ -810,16 +816,6 @@ li {
   z-index: 2;
 }
 
-.spread-enter-active, .spread-leave-active {
-  transition: all 0.3s ease;
-  transform: translateX(0%);
-}
-
-.spread-enter, .spread-leave-to {
-  transition: all 0.3s ease;
-  transform: translateX(100%);
-}
-
 .singer_list .menu ul li.active {
   color: #ffcd32;
 }
@@ -916,4 +912,60 @@ li {
 .fade-enter, .fade-leave-to {
   transition: all 0.3s ease;
   transform: translateY(100%);
+}
+
+.spread-enter-active, .spread-leave-active {
+  transition: all 0.3s ease;
+  transform: translateX(0%);
+}
+
+.spread-enter, .spread-leave-to {
+  transition: all 0.3s ease;
+  transform: translateX(100%);
+}
+
+.show-enter-active, .show-leave-active {
+  transition: all 0.4s;
+}
+
+.show-enter-active .top, .show-leave-active .top, .show-enter-active .bottom, .show-leave-active .bottom {
+  transition: all 0.4s cubic-bezier(0.86, 0.18, 0.82, 1.32);
+}
+
+.show-enter, .show-leave-to {
+  opacity: 0;
+}
+
+.show-enter .top, .show-leave-to .top {
+  transform: translate3d(0, -100px, 0);
+}
+
+.show-enter .bottom, .show-leave-to .bottom {
+  transform: translate3d(0, 100px, 0);
+}
+
+.top_tip {
+  position: fixed;
+  top: 0px;
+  width: 100%;
+  z-index: 5000;
+  background-color: #444;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: center;
+  padding: 0.35rem 0px;
+}
+
+.top_tip p {
+  margin-left: 0.5rem;
+  font-size: 0.65rem;
+}
+
+.drop-enter-active, .drop-leave-active {
+  transition: all 0.3s ease;
+}
+
+.drop-enter, .drop-leave-to {
+  transform: translate3d(0, -100%, 0)
 }

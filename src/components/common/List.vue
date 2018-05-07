@@ -20,13 +20,13 @@
           </span>
         </div>
         <div class="wrapper">
-          <Scroll class="scroll_wrapper">
+          <section class="scroll_wrapper" ref="wrapper">
             <ul>
-              <li v-for="item in lists" :key="item.id">
-                <p class="current circle_wrap icon_play">
-                  <Icon class="scale" type="play" size="5" color="#ffcd32"></Icon>
+              <li v-for="(item, index) in lists" :key="item.id">
+                <p :class="[activeIndex == index ? 'circle_wrap' : '', 'icon_play']">
+                  <Icon class="scale" type="play" size="5" color="#ffcd32" v-if="activeIndex == index"></Icon>
                 </p>
-                <p class="title">{{item.name}}</p>
+                <p class="title" @click="scrollTo(index, $event)">{{item.name}}</p>
                 <p class="action">
                   <span>
                     <Icon v-show="false" type="ios-heart-outline" size="15" color="#ffcd32"></Icon>
@@ -38,7 +38,7 @@
                 </p>
               </li>
             </ul>
-          </Scroll>
+          </section>
         </div>
         <div class="btn_wrapper" @click="changeAdd">
           <div class="btn">
@@ -53,26 +53,43 @@
 </template>
 
 <script>
-  import Scroll from './Scroll.vue'
+  import BScroll from 'better-scroll'
   import axios from 'axios'
   export default {
-    components: {
-      Scroll
-    },
     data () {
       return {
         play_type: 1,
+        activeIndex: 0,
         lists: []
       }
     },
     created: function () {
       axios.get('http://localhost:8080/static/playList.json').then((res)=>{
         this.lists = res.data.data;
+        this.$nextTick(() => {
+          this._initScroll();
+        })
       }).catch((error)=>{
         console.log(error)
       })
     },
     methods: {
+      _initScroll () {
+        var self = this;
+        this.wrapper = new BScroll(this.$refs.wrapper, {
+          click: true,
+          probeType: 3
+        })
+        this.wrapper.on('scroll', function (pos) {
+          self.WrapperY = Math.abs(Math.round(pos.y));
+        })
+        this.detailList = this.$refs.wrapper.querySelectorAll('li');
+      },
+      scrollTo (index, event) {
+        if (!event._constructed) return;
+        this.activeIndex = index;
+        this.wrapper.scrollToElement(this.detailList[index], 300);
+      },
       showList () {
         this.$store.dispatch('changeShowList');
       },

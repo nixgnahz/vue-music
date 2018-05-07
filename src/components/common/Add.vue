@@ -1,5 +1,9 @@
 <template>
   <div class="add fixed">
+    <TopTip v-if="showTip">
+      <Icon type="ios-checkmark-empty" size="30" color="#ffcd32"></Icon>
+      <p>1首歌曲已添加到播放列表</p>
+    </TopTip>
     <div class="top">
       <p>添加歌曲到列表</p>
       <span class="close_icon" @click="showAdd">
@@ -22,7 +26,7 @@
       <Scroll class="scroll_wrapper">
         <section>
           <ul>
-            <li v-for="item in songs">
+            <li v-for="item in songs" @click="addList">
               <p class="name">{{item.name}}</p>
               <p class="desc">{{item.desc}}</p>
             </li>
@@ -38,17 +42,20 @@
   import History from '../search/History.vue'
   import Result from '../search/Result.vue'
   import Scroll from './Scroll.vue'
+  import TopTip from './TopTip.vue'
   import axios from 'axios'
   export default {
     components: {
       Search,
       History,
       Result,
-      Scroll
+      Scroll,
+      TopTip
     },
     data () {
       return {
         activeIndex: 0,
+        showTip: false,
         songs: [],
         menu: ["最近播放", "搜索历史"]
       }
@@ -66,6 +73,14 @@
       },
       showAdd () {
         this.$store.dispatch('changeShowAdd');
+      },
+      addList () {
+        var self = this;
+        if(this.showTip) return;
+        this.showTip = true;
+        setTimeout(function () {
+          self.showTip = false;
+        }, 1000)
       }
     }
   }

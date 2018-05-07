@@ -38,6 +38,7 @@ export  default {
       })
     },
     addHistory (state) {
+      if(!state.searchValue) return;
       for(let i = 0; i < state.history.length; i++) {
         if(state.history[i] == state.searchValue) {
           return;
