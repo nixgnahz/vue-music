@@ -13,7 +13,7 @@
 
 <script>
   import List from './rank/List.vue'
-  import Scroll from './common/Scroll.vue'
+  import Scroll from './baseComponents/Scroll.vue'
   export default {
     components: {
       List,

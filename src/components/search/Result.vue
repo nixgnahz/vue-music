@@ -17,7 +17,7 @@
 </template>
 
 <script>
-  import Scroll from '../common/Scroll.vue'
+  import Scroll from '../baseComponents/Scroll.vue'
   export default {
     components: {
       Scroll

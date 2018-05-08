@@ -15,7 +15,7 @@
 
 <script>
   import axios from 'axios'
-  import Scroll from '../common/Scroll.vue'
+  import Scroll from '../baseComponents/Scroll.vue'
   export default {
     components: {
       Scroll

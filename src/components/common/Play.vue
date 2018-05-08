@@ -181,19 +181,5 @@
 </script>
 
 <style>
-  .blur_cover {
-    position: absolute;
-    top: 0px;
-    left: 0px;
-    opacity: 0.6;
-    filter: blur(20px);
-    width: 100%;
-    height: 100%;
-    z-index: -1;
-  }
 
-  .blur_cover img {
-    width: 100%;
-    height: 100%;
-  }
 </style>

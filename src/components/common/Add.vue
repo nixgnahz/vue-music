@@ -41,8 +41,8 @@
   import Search from '../search/Input.vue'
   import History from '../search/History.vue'
   import Result from '../search/Result.vue'
-  import Scroll from './Scroll.vue'
-  import TopTip from './TopTip.vue'
+  import Scroll from '../baseComponents/Scroll.vue'
+  import TopTip from '../baseComponents/TopTip.vue'
   import axios from 'axios'
   export default {
     components: {

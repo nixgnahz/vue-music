@@ -944,28 +944,57 @@ li {
   transform: translate3d(0, 100px, 0);
 }
 
-.top_tip {
-  position: fixed;
-  top: 0px;
-  width: 100%;
-  z-index: 5000;
-  background-color: #444;
-  display: flex;
-  align-items: center;
-  flex-direction: row;
-  justify-content: center;
-  padding: 0.35rem 0px;
-}
-
 .top_tip p {
   margin-left: 0.5rem;
   font-size: 0.65rem;
 }
 
-.drop-enter-active, .drop-leave-active {
-  transition: all 0.3s ease;
+.blur_cover {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  opacity: 0.6;
+  filter: blur(20px);
+  width: 100%;
+  height: 100%;
+  z-index: -1;
 }
 
-.drop-enter, .drop-leave-to {
-  transform: translate3d(0, -100%, 0)
+.blur_cover img {
+  width: 100%;
+  height: 100%;
+}
+
+.outer_wrapper {
+  position: fixed;
+  width: 100%;
+  bottom: 0px;
+  top: 40%;
+}
+
+.list-fade-enter-active, .list-fade-leave-active {
+  transition: all 0.1s;
+}
+
+.list-fade-enter, .list-fade-leave-to {
+  height: 0;
+}
+
+.songs li {
+  display: flex;
+  align-items: center;
+}
+
+.songs li .order {
+  width: 30px;
+  height: 30px;
+  margin: 0px 20px 0px 10px;
+  text-align: center;
+  font-size: 0.8rem;
+  color: #ffcd32;
+  font-weight: bold;
+}
+
+.songs li .order img {
+  width: 100%;
 }

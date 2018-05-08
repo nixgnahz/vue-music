@@ -34,11 +34,14 @@ export default {
     changeShowAdd (context) {
       context.commit('changeShowAdd');
     },
-    changeShowMiniPlay (context) {
+    showMiniPlay (context) {
       if(!context.state.showMiniPlay) {
         context.commit('changeShowMiniPlay');
       }
       context.commit('changeShowPlay');
+    },
+    hideMiniPlay (context) {
+      context.commit('changeShowMiniPlay');
     },
     changeActiveIndex (context, payload) {
       context.commit('changeActiveIndex', payload);

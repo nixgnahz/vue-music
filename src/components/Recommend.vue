@@ -19,7 +19,7 @@
   import List from './recommend/List.vue'
   import getSwiper from '@/api/swiper'
   import {success} from '@/api/jsonp'
-  import Scroll from './common/Scroll.vue'
+  import Scroll from './baseComponents/Scroll.vue'
   import axios from 'axios'
   export default {
     components: {

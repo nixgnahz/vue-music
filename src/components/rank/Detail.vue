@@ -1,7 +1,7 @@
 <template>
   <div>
     <Info :info="infoList"></Info>
-    <Songs :songs="songsList"></Songs>
+    <Songs :songs="songsList" :showOrder="showOrder"></Songs>
   </div>
 </template>
 
@@ -17,6 +17,7 @@
     data () {
       return {
         infoList: {},
+        showOrder: true,
         songsList: []
       }
     },
