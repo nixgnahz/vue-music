@@ -25,11 +25,11 @@
           </swiper-slide>
           <swiper-slide>
             <section class="lyric_scroll">
-              <Scroll class="lyric_wrapper">
+              <div class="lyric_wrapper" ref="wrapper">
                 <div class="lyrics">
                   <p class="text" :class="[lyricIndex == index ? 'current' : '']" v-for="(item, index) in detail.lyric">{{item}}</p>
                 </div>
-              </Scroll>
+              </div>
             </section>
           </swiper-slide>
         </swiper>
@@ -75,7 +75,7 @@
   import axios from 'axios'
   import 'swiper/dist/css/swiper.css'
   import { swiper, swiperSlide } from 'vue-awesome-swiper'
-  import Scroll from './Scroll.vue'
+  import BScroll from 'better-scroll'
   const window = {
     width: document.documentElement.clientWidth * 0.55,
     left: document.documentElement.clientWidth * 0.45 / 2
@@ -83,8 +83,7 @@
   export default {
     components: {
       swiper,
-      swiperSlide,
-      Scroll
+      swiperSlide
     },
     data () {
       return {
@@ -100,7 +99,9 @@
         totalTime: 0,
         options: {
           notNextTick: true
-        }
+        },
+        wrapper: {},
+        detailList: []
       }
     },
     created: function () {
@@ -108,6 +109,9 @@
         this.detail = res.data.data;
         this.currentLyric = this.detail.lyric[this.lyricIndex];
         this._calculateTime();
+        this.$nextTick(() => {
+          this._initScroll();
+        })
       }).catch((error)=>{
         console.log(error)
       })
@@ -137,6 +141,19 @@
         this.progress = progress;
         this._setTime();
         this._setLyric();
+        this._scrollToElement();
+      },
+      _initScroll () {
+        var self = this;
+        this.wrapper = new BScroll(this.$refs.wrapper, {
+          click: true
+        })
+        this.detailList = this.$refs.wrapper.querySelectorAll('.text');
+      },
+      _scrollToElement () {
+        let index = Math.floor(this.progress / 100 * this.detailList.length) - 5;
+        if (index < 0) index = 0;
+        this.wrapper.scrollToElement(this.detailList[index], 300);
       },
       _calculateTime () {
         let arr = this.detail.totalTime.split(":");

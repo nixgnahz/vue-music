@@ -584,8 +584,8 @@ li {
 }
 
 .lyric_wrapper .text {
-  margin: 0.35rem 0px;
-  font-size: 0.6rem;
+  padding: 0.25rem 0px;
+  font-size: 0.65rem;
   color: #aaa;
 }
 
