@@ -40,7 +40,7 @@
   }
 </script>
 
-<style>
+<style lang="scss">
  .confirm-wrapper {
     position: fixed;
     left: 0px;
@@ -53,36 +53,31 @@
     align-items: center;
     flex-direction: row;
     justify-content: center;
-  }
-
-  .confirm-wrapper .confirm-content {
-    width: 260px;
-    background-color: #444;
-    border-radius: 10px;
-    font-size: 0.65rem;
-    text-align: center;
-  }
-
-  .confirm-wrapper .confirm-content .title {
-    padding: 15px 0px;
-  }
-
-  .confirm-wrapper .confirm-content .btn {
-    display: flex;
-    align-items: center;
-    flex-direction: row;
-    justify-content: space-around;
-    border-top: 1px solid rgba(0, 0, 0, 0.3);
-  }
-
-  .confirm-wrapper .confirm-content .btn p {
-    flex: 1;
-    padding: 10px 0px;
-    border-right: 1px solid rgba(0, 0, 0, 0.3);
-  }
-
-  .confirm-wrapper .confirm-content .btn p:last-child {
-    border: 0px;
+    .confirm-content {
+      width: 260px;
+      background-color: #444;
+      border-radius: 10px;
+      font-size: 0.65rem;
+      text-align: center;
+      .title {
+        padding: 15px 0px;
+      }
+      .btn {
+        display: flex;
+        align-items: center;
+        flex-direction: row;
+        justify-content: space-around;
+        border-top: 1px solid rgba(0, 0, 0, 0.3);
+        p {
+          flex: 1;
+          padding: 10px 0px;
+          border-right: 1px solid rgba(0, 0, 0, 0.3);
+          &:last-child {
+            border: 0px;
+          }
+        }
+      }
+    }
   }
 
   .scale-enter-active {

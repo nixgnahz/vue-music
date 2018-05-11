@@ -43,6 +43,15 @@
   }
 </script>
 
-<style>
-
+<style lang="scss">
+  @import '../static/Sass/common.scss';
+  @import '../static/Sass/search.scss';
+  @import '../static/Sass/user.scss';
+  @import '../static/Sass/rank.scss';
+  @import '../static/Sass/singer.scss';
+  @import '../static/Sass/recommend.scss';
+  @import '../static/Sass/player.scss';
+  @import '../static/Sass/list.scss';
+  @import '../static/Sass/animation.scss';
+  @import '../static/Sass/playlist.scss';
 </style>

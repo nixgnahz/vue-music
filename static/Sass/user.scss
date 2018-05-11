@@ -1,0 +1,49 @@
+.user_header {
+  .back_icon {
+    position: absolute;
+    top: 0.4rem;
+    left: 0.5rem;
+  }
+  .top {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5rem;
+    position: relative;
+  }
+  .play_btn {
+    width: 6rem;
+    height: 1.6rem;
+    border: 1px solid #aaa;
+    border-radius: 0.8rem;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: center;
+    margin: 0.8rem auto 1.7rem;
+    span {
+      margin-left: 0.5rem;
+    }
+  }
+}
+
+.user_songs {
+  width: 90%;
+  margin: 0px 5%;
+  position: fixed;
+  top: 22.5%;
+  border: 0px;
+  height: 77.5%;
+  li {
+    margin: 0.75rem;
+  }
+  .name {
+    font-size: 0.7rem;
+    font-weight: 700;
+    margin-bottom: 0.25rem;
+  }
+  .desc {
+    font-size: 0.6rem;
+    color: #aaa;
+  }
+}

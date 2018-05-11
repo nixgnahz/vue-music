@@ -1,0 +1,76 @@
+.list-fade-enter-active, .list-fade-leave-active {
+  transition: all 0.1s;
+}
+
+.list-fade-enter, .list-fade-leave-to {
+  height: 0;
+}
+
+.fade-enter-active, .fade-leave-active {
+  transition: all 0.3s ease;
+  transform: translateY(0%);
+}
+
+.fade-enter, .fade-leave-to {
+  transition: all 0.3s ease;
+  transform: translateY(100%);
+}
+
+.spread-enter-active, .spread-leave-active {
+  transition: all 0.3s ease;
+  transform: translateX(0%);
+}
+
+.spread-enter, .spread-leave-to {
+  transition: all 0.3s ease;
+  transform: translateX(100%);
+}
+
+.show-enter-active, .show-leave-active {
+  transition: all 0.4s;
+}
+
+.show-enter-active .top, .show-leave-active .top, .show-enter-active .bottom, .show-leave-active .bottom {
+  transition: all 0.4s cubic-bezier(0.86, 0.18, 0.82, 1.32);
+}
+
+.show-enter, .show-leave-to {
+  opacity: 0;
+}
+
+.show-enter .top, .show-leave-to .top {
+  transform: translate3d(0, -100px, 0);
+}
+
+.show-enter .bottom, .show-leave-to .bottom {
+  transform: translate3d(0, 100px, 0);
+}
+
+.animation {
+  animation: rotate 20s linear infinite;
+}
+
+@keyframes rotate{
+  from {
+    transform: rotate(0deg)
+  }
+  to {
+    transform: rotate(360deg)
+  }
+}
+
+.demo-spin-icon-load {
+  animation: ani-demo-spin 1.5s linear infinite;
+}
+
+@keyframes ani-demo-spin {
+  from {
+    transform: rotate(0deg)
+  }
+  50% {
+    transform: rotate(180deg)
+  }
+  to {
+    transform: rotate(360deg)
+  }
+}
