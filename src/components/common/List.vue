@@ -70,7 +70,7 @@
       }
     },
     created: function () {
-      axios.get('http://localhost:8080/static/playList.json').then((res)=>{
+      axios.get('http://localhost:8080/static/api/playList.json').then((res)=>{
         this.lists = res.data.data;
         this.$nextTick(() => {
           this._initScroll();

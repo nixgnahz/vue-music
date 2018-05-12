@@ -105,7 +105,7 @@
       }
     },
     created: function () {
-      axios.get('http://localhost:8080/static/song.json').then((res)=>{
+      axios.get('http://localhost:8080/static/api/song.json').then((res)=>{
         this.detail = res.data.data;
         this.currentLyric = this.detail.lyric[this.lyricIndex];
         this._calculateTime();

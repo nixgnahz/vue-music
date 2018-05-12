@@ -22,7 +22,7 @@
       }
     },
     created () {
-      axios.get('http://localhost:8080/static/rankSong.json').then((res)=>{
+      axios.get('http://localhost:8080/static/api/rankSong.json').then((res)=>{
         this.infoList = res.data.info;
         this.songsList = res.data.songs;
       }).catch((error)=>{

@@ -32,7 +32,7 @@
       }
     },
     created () {
-      axios.get('http://localhost:8080/static/like.json').then((res)=>{
+      axios.get('http://localhost:8080/static/api/like.json').then((res)=>{
         this.lists = res.data.data;
         this.getList();
       }).catch((error)=>{

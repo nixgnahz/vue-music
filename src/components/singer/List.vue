@@ -50,7 +50,7 @@
       }
     },
     created() {
-      axios.get('http://localhost:8080/static/singer.json').then((res) => {
+      axios.get('http://localhost:8080/static/api/singer.json').then((res) => {
         this.singerList = res.data.data;
         this.$nextTick(() => {
           this.calculateHeight();

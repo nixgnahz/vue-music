@@ -21,7 +21,7 @@
       }
     },
     created () {
-      axios.get('http://localhost:8080/static/singerSong.json').then((res)=>{
+      axios.get('http://localhost:8080/static/api/singerSong.json').then((res)=>{
         this.infoList = res.data.info;
         this.songsList = res.data.songs;
       }).catch((error)=>{

@@ -30,7 +30,7 @@
       }
     },
     created: function () {
-      axios.get('http://localhost:8080/static/song.json').then((res)=>{
+      axios.get('http://localhost:8080/static/api/song.json').then((res)=>{
         this.detail = res.data.data;
         this.$refs.audio.src = this.detail.source;
         this.$refs.audio.play();

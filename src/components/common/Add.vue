@@ -61,7 +61,7 @@
       }
     },
     created () {
-      axios.get('http://localhost:8080/static/like.json').then((res)=>{
+      axios.get('http://localhost:8080/static/api/like.json').then((res)=>{
         this.songs = res.data.data.listen;
       }).catch((error)=>{
         console.log(error)

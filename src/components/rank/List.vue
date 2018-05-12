@@ -22,7 +22,7 @@
       }
     },
     created: function () {
-      axios.get('http://localhost:8080/static/rank.json').then((res)=>{
+      axios.get('http://localhost:8080/static/api/rank.json').then((res)=>{
         this.items = res.data.data;
       }).catch((error)=>{
         console.log(error);

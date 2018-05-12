@@ -39,7 +39,7 @@
           this.swipers = res.data.slider;
         }
       })
-      axios.get('http://localhost:8080/static/recommend.json').then((res)=>{
+      axios.get('http://localhost:8080/static/api/recommend.json').then((res)=>{
         this.recommends = res.data.data;
       }).catch((error)=>{
         console.log(error)

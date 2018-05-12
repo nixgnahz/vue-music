@@ -19,7 +19,7 @@
 export default {
   data () {
     return {
-      portrait: require('../../static/portrait.png'),
+      portrait: require('../../static/image/portrait.png'),
       menu: [
         {
           href: 'recommend',

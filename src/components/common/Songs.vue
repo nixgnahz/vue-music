@@ -34,9 +34,9 @@
     },
     data () {
       return {
-        first: require('../../../static/first.png'),
-        second: require('../../../static/second.png'),
-        third: require('../../../static/third.png')
+        first: require('../../../static/image/first.png'),
+        second: require('../../../static/image/second.png'),
+        third: require('../../../static/image/third.png')
       }
     },
     methods: {
