@@ -1,5 +1,3 @@
-import axios from 'axios'
-
 export  default {
   state: {
     searchValue: "",
@@ -20,22 +18,10 @@ export  default {
     getSearchResults (state) {
       if(!state.searchValue) return;
       state.showLoad = true;
-      axios.get('http://musicapi.leanapp.cn/search?keywords=' + state.searchValue,{
-        params: {
-          limit: 30,
-          offset: 1
-        }
-      }).then((res)=>{
+      setTimeout(function () {
+        state.showEmpty = true;
         state.showLoad = false;
-        if(res.data.result.songCount) {
-          state.results = res.data.result.songs;
-          state.showEmpty = false;
-        } else{
-          state.showEmpty = true;
-        }
-      }).catch((error)=>{
-        console.log(error)
-      })
+      }, 1500)
     },
     addHistory (state) {
       if(!state.searchValue) return;

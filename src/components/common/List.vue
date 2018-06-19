@@ -56,7 +56,7 @@
 <script>
   import BScroll from 'better-scroll'
   import Confirm from '../baseComponents/Confirm.vue'
-  import axios from 'axios'
+  import resData from '../../../static/api/playList.json'
   export default {
     components: {
       Confirm
@@ -70,13 +70,9 @@
       }
     },
     created: function () {
-      axios.get('http://localhost:8080/static/api/playList.json').then((res)=>{
-        this.lists = res.data.data;
-        this.$nextTick(() => {
-          this._initScroll();
-        })
-      }).catch((error)=>{
-        console.log(error)
+      this.lists = resData.data;
+      this.$nextTick(() => {
+        this._initScroll();
       })
     },
     methods: {

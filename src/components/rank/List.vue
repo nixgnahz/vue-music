@@ -14,7 +14,7 @@
 </template>
 
 <script>
-  import axios from 'axios'
+  import resData from '../../../static/api/rank.json'
   export default {
     data () {
       return {
@@ -22,11 +22,7 @@
       }
     },
     created: function () {
-      axios.get('http://localhost:8080/static/api/rank.json').then((res)=>{
-        this.items = res.data.data;
-      }).catch((error)=>{
-        console.log(error);
-      })
+      this.items = resData.data;
     },
     methods: {
       showSongs (id) {

@@ -43,7 +43,7 @@
   import Result from '../search/Result.vue'
   import Scroll from '../baseComponents/Scroll.vue'
   import TopTip from '../baseComponents/TopTip.vue'
-  import axios from 'axios'
+  import resData from '../../../static/api/like.json'
   export default {
     components: {
       Search,
@@ -61,11 +61,7 @@
       }
     },
     created () {
-      axios.get('http://localhost:8080/static/api/like.json').then((res)=>{
-        this.songs = res.data.data.listen;
-      }).catch((error)=>{
-        console.log(error)
-      })
+      this.songs = resData.data.listen;
     },
     methods: {
       changeMenu (index) {

@@ -14,7 +14,7 @@
 </template>
 
 <script>
-  import axios from 'axios'
+  import resData from '../../../static/api/like.json'
   import Scroll from '../baseComponents/Scroll.vue'
   export default {
     components: {
@@ -32,12 +32,8 @@
       }
     },
     created () {
-      axios.get('http://localhost:8080/static/api/like.json').then((res)=>{
-        this.lists = res.data.data;
-        this.getList();
-      }).catch((error)=>{
-        console.log(error)
-      })
+      this.lists = resData.data;
+      this.getList();
     },
     methods: {
       getList () {

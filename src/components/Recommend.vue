@@ -17,10 +17,9 @@
 <script>
   import Swiper from './recommend/Swiper.vue'
   import List from './recommend/List.vue'
-  import getSwiper from '@/api/swiper'
-  import {success} from '@/api/jsonp'
   import Scroll from './baseComponents/Scroll.vue'
-  import axios from 'axios'
+  import res from '../../static/api/swiper.json'
+  import resData from '../../static/api/recommend.json'
   export default {
     components: {
       Swiper,
@@ -34,16 +33,8 @@
       }
     },
     created () {
-      getSwiper().then((res)=>{
-        if(res.code === success) {
-          this.swipers = res.data.slider;
-        }
-      })
-      axios.get('http://localhost:8080/static/api/recommend.json').then((res)=>{
-        this.recommends = res.data.data;
-      }).catch((error)=>{
-        console.log(error)
-      })
+      this.swipers = res.data;
+      this.recommends = resData.data;
     }
   }
 </script>

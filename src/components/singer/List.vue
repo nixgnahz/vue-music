@@ -24,7 +24,7 @@
 </template>
 
 <script>
-  import axios from 'axios'
+  import resData from '../../../static/api/singer.json'
   import BScroll from 'better-scroll'
   export default {
     data() {
@@ -50,14 +50,10 @@
       }
     },
     created() {
-      axios.get('http://localhost:8080/static/api/singer.json').then((res) => {
-        this.singerList = res.data.data;
-        this.$nextTick(() => {
-          this.calculateHeight();
-          this.initScroll();
-        })
-      }).catch((error) => {
-        console.log(error);
+      this.singerList = resData.data;
+      this.$nextTick(() => {
+        this.calculateHeight();
+        this.initScroll();
       })
     },
     methods: {

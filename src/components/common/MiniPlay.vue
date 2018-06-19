@@ -21,7 +21,7 @@
 </template>
 
 <script>
-  import axios from 'axios'
+  import resData from '../../../static/api/song.json'
   export default {
     data () {
       return {
@@ -29,14 +29,10 @@
         detail: {}
       }
     },
-    created: function () {
-      axios.get('http://localhost:8080/static/api/song.json').then((res)=>{
-        this.detail = res.data.data;
-        this.$refs.audio.src = this.detail.source;
-        this.$refs.audio.play();
-      }).catch((error)=>{
-        console.log(error)
-      })
+    mounted: function () {
+      this.detail = resData.data;
+      this.$refs.audio.src = this.detail.source;
+      this.$refs.audio.play();
     },
     methods: {
       changePlayStatus () {

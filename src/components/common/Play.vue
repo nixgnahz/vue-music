@@ -72,7 +72,7 @@
 </template>
 
 <script>
-  import axios from 'axios'
+  import resData from '../../../static/api/song.json'
   import 'swiper/dist/css/swiper.css'
   import { swiper, swiperSlide } from 'vue-awesome-swiper'
   import BScroll from 'better-scroll'
@@ -105,15 +105,11 @@
       }
     },
     created: function () {
-      axios.get('http://localhost:8080/static/api/song.json').then((res)=>{
-        this.detail = res.data.data;
-        this.currentLyric = this.detail.lyric[this.lyricIndex];
-        this._calculateTime();
-        this.$nextTick(() => {
-          this._initScroll();
-        })
-      }).catch((error)=>{
-        console.log(error)
+      this.detail = resData.data;
+      this.currentLyric = this.detail.lyric[this.lyricIndex];
+      this._calculateTime();
+      this.$nextTick(() => {
+        this._initScroll();
       })
     },
     methods: {
